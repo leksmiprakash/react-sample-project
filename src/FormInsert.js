@@ -9,7 +9,8 @@ class FormInsert extends Component{
             name: '',
             pswrd : '',
             enable: false,
-            textContent:''
+            textContent:'',
+            items: []
         };
     }
     inputSet=(e)=>{ 
@@ -28,6 +29,15 @@ class FormInsert extends Component{
         );
     }
     register=(e)=>{ 
+        let user = [
+             this.state.uname,
+             this.state.name,
+            this.state.pswrd
+        ]
+        let currentItems = this.state.items;
+        currentItems.push(user);
+        console.log(currentItems);
+        this.setState({items: currentItems});
         e.preventDefault();
         var dat= {
             uname : this.state.uname,
@@ -35,7 +45,7 @@ class FormInsert extends Component{
             pswrd :this.state.pswrd
         };
         axios.post('http://localhost/api/api.php',dat).then(response=>{
-            alert(response);
+            //alert(response);
         })
     }
     checkClicked=(e)=>{
@@ -45,8 +55,17 @@ class FormInsert extends Component{
         ));
     }
     // e used to get the event content 
-    
+    deleteItems=(k)=>{
+        if(!window.confirm("Are you sure you want to delete?")){
+            return false;
+        }
+        let currentItems = this.state.items;
+        currentItems.splice(k,1);
+        this.setState({items: currentItems});
+    }
+
     render(){
+        
         return(
             <div className="container">
                <h3>Registration</h3>
@@ -70,6 +89,21 @@ class FormInsert extends Component{
                     </div>
                     
                 </form>
+                <table class="table ">
+                    <tr>
+                        <td>Uname</td>
+                        <td>Name</td>
+                        <td>Password</td>
+                    </tr>
+                   
+                        
+                            {this.state.items.map((item,k)=>{
+            
+                                return <tr key={k}><td>{item[0]}</td><td>{item[1]}</td><td>{item[2]}</td><button onClick={()=>{this.deleteItems(k)}}>Delete</button></tr>
+                            })}
+                        
+                           
+                </table>
             </div>
         );
     }
