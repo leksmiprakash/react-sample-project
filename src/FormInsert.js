@@ -93,13 +93,13 @@ class FormInsert extends Component{
                     <tr>
                         <td>Uname</td>
                         <td>Name</td>
-                        <td>Password</td>
+                        <td>Action</td>
                     </tr>
                    
                         
                             {this.state.items.map((item,k)=>{
             
-                                return <tr key={k}><td>{item[0]}</td><td>{item[1]}</td><td>{item[2]}</td><button onClick={()=>{this.deleteItems(k)}}>Delete</button></tr>
+                                return <tr key={k}><td>{item[0]}</td><td>{item[1]}</td><button onClick={()=>{this.deleteItems(k)}}>Delete</button></tr>
                             })}
                         
                            

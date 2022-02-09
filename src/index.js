@@ -3,9 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import FormInsert from './FormInsert'
-import ToDoList from './ToDoList';
 //import reportWebVitals from './reportWebVitals';
-import {CustomerForm} from './Form2';
 ReactDOM.render(
   <React.StrictMode>
     <App />
