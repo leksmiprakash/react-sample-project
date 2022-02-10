@@ -99,7 +99,7 @@ class FormInsert extends Component{
                         
                             {this.state.items.map((item,k)=>{
             
-                                return <tr key={k}><td>{item[0]}</td><td>{item[1]}</td><button onClick={()=>{this.deleteItems(k)}}>Delete</button></tr>
+                                return <tr key={k}><td>{item[0]}</td><td>{item[1]}</td><button className="btn btn-danger" onClick={()=>{this.deleteItems(k)}}>Delete</button></tr>
                             })}
                         
                            

@@ -2,12 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import FormInsert from './FormInsert'
+import FormInsert from './Components/FormInsert';
 //import reportWebVitals from './reportWebVitals';
 ReactDOM.render(
   <React.StrictMode>
     <App />
-    <FormInsert/>
+    
           
   </React.StrictMode>,
   document.getElementById('root')
